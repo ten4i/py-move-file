@@ -15,6 +15,9 @@ def move_file(command: str) -> None:
 
     if file_in_name == file_out_name:
         return None
+    if os.path.isdir(file_out_name) or file_out_name.endswith("/"):
+        file_out_name = os.path.join(file_out_name, file_in_name)
+    # check are there a name of file
 
     dir_path = os.path.dirname(file_out_name)
     if dir_path:
